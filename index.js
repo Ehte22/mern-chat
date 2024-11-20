@@ -1,7 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
-const path = require("path")
 const cookieParser = require("cookie-parser")
 const { app, server } = require("./socket/socket")
 const { userProtected } = require("./middlewares/protected")
@@ -15,7 +14,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.use(express.static(path.join(__dirname, "../dist")))
+app.use(express.static("dist"))
 app.use(express.static("uploads"))
 app.use(express.static("profile"))
 app.use("/api/auth", require("./routes/auth.routes"))
